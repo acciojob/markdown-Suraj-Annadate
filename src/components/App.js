@@ -1,31 +1,15 @@
-{/* <p>Now I can render any React component on any DOM node I want using ReactDOM.render</p> */}
-
-
-import React , {useEffect, useState} from "react"
-
-
+import React, { useState } from 'react';
+import '../styles/App.css'
 
 const App = () => {
-  const[change , setChange] = useState("")
-    useEffect(() => {
-        document.getElementById("markDown").innerText = change
-    }, [change])
+   const[markdown,setMarkdown] = useState("");
 
-    return (
-        <div className="app">
-          <div className="markDownContainer">
-            <textarea 
-            value={change} 
-            onChange={(e) => setChange(e.target.value)}
-            />
-          </div>
-          <div className="preview">
-            <h1 >
-                <b id="markDown"></b>
-            </h1>
-          </div>
-        </div>
-    )
+   return(<div className='app'>
+    <textarea value={markdown} onChange={(e)=> setMarkdown(e.target.value)}/>
+    <div className='preview'>
+    <h1>{markdown}</h1>
+    </div>
+   </div>)
 }
 
 export default App
